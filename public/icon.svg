@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" width="75" height="75">
+  <rect width="75" height="75" rx="16" fill="#09090b" />
+  <rect width="73" height="73" x="1" y="1" rx="15" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" />
+  <!-- Left Geometric Star/Sparkle Icon (Exact Match centered) -->
+  <path d="M 37.5 5 
+           L 37.5 37.5 
+           L 67.5 37.5 
+           C 48 37.5 37.5 48 37.5 70 
+           L 37.5 37.5 
+           L 7.5 37.5 
+           C 27 37.5 37.5 27 37.5 5 Z" fill="#ffffff" />
+</svg>

@@ -1,0 +1,58 @@
+import React from "react";
+
+interface ZenithToolLogoProps {
+  className?: string;
+  height?: number | string;
+  width?: number | string;
+}
+
+export default function ZenithToolLogo({
+  className = "h-9 w-auto",
+  height,
+  width,
+}: ZenithToolLogoProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 220 75"
+      height={height}
+      width={width}
+      className={className}
+      fill="none"
+      role="img"
+      aria-label="Zenith Tool Logo"
+    >
+      <defs>
+        <style>{`
+          .zt-logo-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 500;
+            font-size: 29px;
+            fill: #ffffff;
+            letter-spacing: -0.5px;
+          }
+        `}</style>
+      </defs>
+
+      {/* Left Geometric Star/Sparkle Icon (Exact Match) */}
+      <path
+        d="M 32 4 
+           L 32 37.5 
+           L 62 37.5 
+           C 42 37.5 32 47.5 32 71 
+           L 32 37.5 
+           L 2 37.5 
+           C 22 37.5 32 27.5 32 4 Z"
+        fill="#ffffff"
+      />
+
+      {/* Text: zenith tool */}
+      <text x="76" y="34" className="zt-logo-text">
+        zenith
+      </text>
+      <text x="76" y="64" className="zt-logo-text">
+        tool
+      </text>
+    </svg>
+  );
+}
