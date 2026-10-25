@@ -33,14 +33,29 @@ export async function connectToDatabase(): Promise<typeof mongoose> {
       serverSelectionTimeoutMS: 15000,
     };
 
-    const targetUri = MONGODB_URI.startsWith("mongodb+srv://")
-      ? DIRECT_URI
-      : MONGODB_URI;
+    const attemptConnect = async (uri: string) => {
+      return mongoose.connect(uri, opts);
+    };
 
-    cached!.promise = mongoose.connect(targetUri, opts).then((m) => {
-      console.log("Connected to MongoDB successfully");
-      return m;
-    });
+    cached!.promise = (async () => {
+      try {
+        const m = await attemptConnect(MONGODB_URI);
+        console.log("Connected to MongoDB successfully");
+        return m;
+      } catch (err: unknown) {
+        const error = err as { code?: string; message?: string };
+        if (
+          error?.code === "ECONNREFUSED" ||
+          error?.message?.includes("querySrv")
+        ) {
+          console.warn("Retrying MongoDB connection with direct replica set URI...");
+          const m = await attemptConnect(DIRECT_URI);
+          console.log("Connected to MongoDB via direct replica set successfully");
+          return m;
+        }
+        throw err;
+      }
+    })();
   }
 
   try {
