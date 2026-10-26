@@ -63,7 +63,7 @@ export default function DashboardLayout({
             {/* Right Header Navigation */}
             <div className="flex items-center gap-3">
               <a
-                href="http://localhost:5173"
+                href="https://zenithacademy.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/10 hover:text-white transition"

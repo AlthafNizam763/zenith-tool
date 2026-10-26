@@ -104,7 +104,7 @@ export default function OverviewView({ onNavigate }: OverviewViewProps) {
             </button>
 
             <a
-              href="http://localhost:5173"
+              href="https://zenithacademy.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-button-primary rounded-xl px-5 py-2.5 text-xs font-medium flex items-center gap-2"
