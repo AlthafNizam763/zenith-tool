@@ -6,10 +6,8 @@ import {
   Film,
   Megaphone,
   BookOpen,
-  Database,
   ArrowUpRight,
   RefreshCw,
-  Sparkles,
   ExternalLink,
 } from "lucide-react";
 
@@ -83,7 +81,7 @@ export default function OverviewView({ onNavigate }: OverviewViewProps) {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>MongoDB Atlas Connected &bull; Zenith Live</span>
+              <span>Zenith Live Hub</span>
             </div>
             <h2 className="mt-3 text-2xl md:text-3xl font-semibold text-white">
               Zenith-Academy Content Control Hub
@@ -231,98 +229,44 @@ export default function OverviewView({ onNavigate }: OverviewViewProps) {
         </div>
       </div>
 
-      {/* Database & Architecture Status */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 glass-panel rounded-2xl p-6 border border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <Database size={18} />
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-white">
-                MongoDB Migration &amp; Architecture Status
-              </h3>
-              <p className="text-xs text-zinc-400">
-                Independent backend replacing legacy Firestore direct calls
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
-              <p className="text-xs text-zinc-400">Database Engine</p>
-              <p className="mt-1 text-sm font-medium text-white">MongoDB Atlas Cluster</p>
-              <p className="mt-1 font-mono text-[11px] text-emerald-400">Database: zenith_academy</p>
-            </div>
-
-            <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
-              <p className="text-xs text-zinc-400">API Contract</p>
-              <p className="mt-1 text-sm font-medium text-white">Next.js App Router</p>
-              <p className="mt-1 font-mono text-[11px] text-zinc-400">CORS enabled for website</p>
-            </div>
-
-            <div className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
-              <p className="text-xs text-zinc-400">Media Storage</p>
-              <p className="mt-1 text-sm font-medium text-white">Centralized Storage</p>
-              <p className="mt-1 font-mono text-[11px] text-zinc-400">Local / Public URLs</p>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-xl border border-white/5 bg-white/[0.02] p-4 text-xs text-zinc-300 leading-relaxed">
-            <div className="flex items-center gap-2 font-medium text-white mb-1.5">
-              <Sparkles size={14} className="text-amber-400" />
-              <span>Real-time Synchronization to Zenith-Academy Website</span>
-            </div>
-            Any update published in this tool is immediately available at the public API endpoint{" "}
-            <code className="text-emerald-300 bg-white/5 px-1 py-0.5 rounded">
-              /api/public/*
-            </code>
-            . The main Zenith-Academy website consumes this API automatically with cached fallbacks.
-          </div>
+      {/* Quick Management Actions */}
+      <div className="glass-panel rounded-2xl p-6 border border-white/10">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-semibold text-white">Quick Management Actions</h3>
+          <span className="text-[11px] text-zinc-500">Zenith Academy Content Engine</span>
         </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <button
+            onClick={() => onNavigate("stories")}
+            className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-4 text-xs text-zinc-200 transition flex items-center justify-between group"
+          >
+            <span>Upload New Story</span>
+            <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+          </button>
 
-        {/* Quick Actions Panel */}
-        <div className="glass-panel rounded-2xl p-6 border border-white/10 flex flex-col justify-between">
-          <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Quick Management Actions</h3>
-            <div className="space-y-2.5">
-              <button
-                onClick={() => onNavigate("stories")}
-                className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-3 text-xs text-zinc-200 transition flex items-center justify-between"
-              >
-                <span>Upload New Story (Video/Image)</span>
-                <ArrowUpRight size={14} className="text-zinc-500" />
-              </button>
+          <button
+            onClick={() => onNavigate("video")}
+            className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-4 text-xs text-zinc-200 transition flex items-center justify-between group"
+          >
+            <span>Change Header Video</span>
+            <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+          </button>
 
-              <button
-                onClick={() => onNavigate("video")}
-                className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-3 text-xs text-zinc-200 transition flex items-center justify-between"
-              >
-                <span>Upload Replacement Hero Video</span>
-                <ArrowUpRight size={14} className="text-zinc-500" />
-              </button>
+          <button
+            onClick={() => onNavigate("banners")}
+            className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-4 text-xs text-zinc-200 transition flex items-center justify-between group"
+          >
+            <span>Add Happening Banner</span>
+            <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+          </button>
 
-              <button
-                onClick={() => onNavigate("banners")}
-                className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-3 text-xs text-zinc-200 transition flex items-center justify-between"
-              >
-                <span>Add Happening Now Promo Banner</span>
-                <ArrowUpRight size={14} className="text-zinc-500" />
-              </button>
-
-              <button
-                onClick={() => onNavigate("study")}
-                className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-3 text-xs text-zinc-200 transition flex items-center justify-between"
-              >
-                <span>Replace Rank File PDF</span>
-                <ArrowUpRight size={14} className="text-zinc-500" />
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-white/5 text-[11px] text-zinc-500">
-            Zenith Academy Management Engine v2.0
-          </div>
+          <button
+            onClick={() => onNavigate("study")}
+            className="w-full text-left rounded-xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.07] p-4 text-xs text-zinc-200 transition flex items-center justify-between group"
+          >
+            <span>Replace Rank File PDF</span>
+            <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+          </button>
         </div>
       </div>
     </div>

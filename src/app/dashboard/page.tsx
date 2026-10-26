@@ -9,7 +9,6 @@ import {
   BookOpen,
   FolderOpen,
   ChevronRight,
-  Database,
   ExternalLink,
 } from "lucide-react";
 import OverviewView from "@/components/dashboard/OverviewView";
@@ -29,19 +28,18 @@ export default function DashboardPage() {
       id: "overview" as const,
       label: "Overview",
       icon: LayoutDashboard,
-      badge: "Atlas",
-    },
-    {
-      id: "stories" as const,
-      label: "Success Stories",
-      icon: Users,
-      badge: "Video & Img",
     },
     {
       id: "video" as const,
       label: "Homepage Video",
       icon: Film,
       badge: "Live",
+    },
+    {
+      id: "stories" as const,
+      label: "Success Stories",
+      icon: Users,
+      badge: "Video & Img",
     },
     {
       id: "banners" as const,
@@ -107,24 +105,6 @@ export default function DashboardPage() {
             </nav>
           </div>
 
-          <div>
-            <p className="px-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-              Connected Target
-            </p>
-            <div className="mt-2 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs">
-              <div className="flex items-center gap-2 text-zinc-300 font-medium">
-                <Database size={13} className="text-emerald-400" />
-                <span>MongoDB Live DB</span>
-              </div>
-              <p className="text-[11px] text-zinc-500 mt-1 font-mono">
-                zenith_academy
-              </p>
-              <div className="mt-2 pt-2 border-t border-white/5 flex items-center justify-between">
-                <span className="text-[10px] text-zinc-500">Public API</span>
-                <span className="text-[10px] text-emerald-400 font-mono">READY</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="pt-4 border-t border-white/5 text-[11px] text-zinc-500 flex items-center justify-between">
